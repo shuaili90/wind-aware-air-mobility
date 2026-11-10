@@ -13,7 +13,7 @@ import Citation from "../components/Citation.astro";
   <div class="container visual-research">
     <section class="section deck-section" id="background" aria-labelledby="background-title">
       <h2 id="background-title">Background</h2>
-      <p class="deck-lead">Advanced air mobility (AAM) extends city transportation into low-altitude airspace. Because eVTOL aircraft take off and land vertically, they can carry passengers across a city without runways.</p>
+      <p class="deck-lead">Low-altitude aerial systems are enabling new applications in urban transportation, logistics, and infrastructure services. Operating in dense urban environments introduces new challenges for safe, efficient, and reliable flight.</p>
       <div class="deck-mosaic wide-media">
         <DeckFigure id="air-mobility" tag="Air mobility" />
         <DeckFigure id="evtol-transport" tag="eVTOL · Transportation" />
@@ -23,7 +23,7 @@ import Citation from "../components/Citation.astro";
 
     <section class="section deck-section" id="problem" aria-labelledby="problem-title">
       <h2 id="problem-title">Problem</h2>
-      <p class="deck-lead">Wind between city buildings changes speed and direction over short distances. It pushes an aircraft off its path and raises the energy it needs to stay on course.</p>
+      <p class="deck-lead">Urban buildings create complex, spatially varying wind fields that affect aerial vehicle performance and energy consumption. Motion planning must account for these conditions while balancing competing objectives, including safety, efficiency, flight comfort, and environmental noise.</p>
       <div class="media-pair wide-media">
         <MotionClip id="problem-wind-simulation" tag="Simulated wind" />
         <MotionClip id="problem-real-flight" tag="Real flight" />
@@ -32,10 +32,11 @@ import Citation from "../components/Citation.astro";
 
     <section class="section deck-section" id="method" aria-labelledby="method-title">
       <h2 id="method-title">Methodology</h2>
-      <p class="deck-lead">Multi-objective motion planning from origin to destination through urban wind fields. The plan weighs energy use and efficiency for the aircraft, comfort, safety, and flight time for passengers, and noise for people on the ground.</p>
+      <p class="deck-lead">We integrate urban wind field modeling with reinforcement learning to enable wind-aware, multi-objective aerial motion planning. The framework is demonstrated through aerial mobility simulations, balancing energy efficiency, flight safety, passenger comfort, travel time, and environmental noise.</p>
       <div class="method-figure wide-media deck-wide"><Figure id="overview" bare /></div>
       <div class="deck-step">
-        <h3>Simulate the city’s wind</h3>
+        <h3>Urban Wind Field Modeling</h3>
+        <p>Urban buildings create complex, spatially varying wind conditions. We explore the integration of aerial sensing, urban digital twins, and physics-informed modeling to characterize and predict urban wind fields, supporting wind-aware aerial navigation and motion planning.</p>
       </div>
       <div class="deck-trio wide-media">
         <DeckFigure id="city" tag="City" />
