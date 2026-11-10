@@ -27,10 +27,10 @@ const nodes: Node[] = [
   { key: "network", label: ["Drone Sensing Network"], place: [222, 153, 228, 137], labelAt: "above", video: "drone-sensing-network" },
   { key: "sensing", label: ["Wind Sensing"], place: [500, 153, 160, 159], labelAt: "above",
     image: { file: "figures/presentation/wind-sensing.webp", width: 600, height: 596, alt: "Icon of a sensor displaying a waveform, with colored lines fanning out to the right." } },
-  { key: "city", label: ["City Model Registration"], place: [730, 153, 220, 149], labelAt: "above",
+  { key: "city", label: ["City Model Registration"], place: [730, 153, 200, 135], labelAt: "above",
     image: figure("city") },
-  { key: "cfd", label: ["CFD /", "Physics-Informed AI"], place: [700, 304, 215, 44], labelAt: "inside" },
-  { key: "field", label: ["Urban Wind Field"], place: [730, 347, 220, 145], labelAt: "below",
+  { key: "cfd", label: ["CFD /", "Physics-Informed AI"], place: [700, 293, 210, 58], labelAt: "inside" },
+  { key: "field", label: ["Urban Wind Field"], place: [730, 354, 210, 138], labelAt: "below",
     image: figure("cfd") },
   { key: "prediction", label: ["Wind Prediction"], place: [490, 382, 196, 110], labelAt: "below", video: "wind-prediction" },
   { key: "impact", label: ["Wind Impact on Drone"], place: [222, 364, 228, 128], labelAt: "below", video: "problem-wind-simulation" },
@@ -40,7 +40,7 @@ const arrows = [
   [192, 298, 218, 270], // drone → sensing network
   [454, 225, 496, 225], // sensing network → wind sensing
   [664, 225, 726, 225], // wind sensing → city model
-  [930, 306, 930, 343], // city model → urban wind field
+  [918, 292, 918, 350], // city model → urban wind field
   [726, 437, 690, 437], // urban wind field → wind prediction
   [486, 437, 454, 437], // wind prediction → wind impact
   [218, 382, 194, 362], // wind impact → drone
