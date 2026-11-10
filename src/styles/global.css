@@ -2093,18 +2093,18 @@ tbody tr:hover {
 .deck-wide { max-width: 1240px; }
 .media-pair .motion-clip video { aspect-ratio: 16 / 9; }
 
-/* Urban wind field loop (Flying DNA slide 5). Positions come from the slide
-   layout; below 700px of figure width the loop reads as a top-to-bottom list. */
-.wind-loop { width: min(calc(100vw - 32px), 1240px); margin-block: 0; container-type: inline-size; border-radius: 8px; background: #111; color: #fff; overflow: hidden; }
+/* Urban wind field loop (Flying DNA slide 5), on the site's white paper with
+   charcoal text. Positions come from the slide layout; below 700px of figure width the loop reads as a top-to-bottom list. */
+.wind-loop { width: min(calc(100vw - 32px), 1240px); margin-block: 0; container-type: inline-size; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--ink); overflow: hidden; }
 .wind-loop-canvas { position: relative; aspect-ratio: 1000 / 440; }
 .wind-loop-arrows { position: absolute; inset: 0; width: 100%; height: 100%; }
-.wind-loop-arrows line { stroke: #c8c8c8; stroke-width: 3.5; }
-.wind-loop-arrows marker path { fill: #c8c8c8; }
+.wind-loop-arrows line { stroke: #575757; stroke-width: 3.5; }
+.wind-loop-arrows marker path { fill: #575757; }
 .wind-loop-steps { --x: 0; --y: 0; --w: 0; --h: 0; margin: 0; padding: 0; list-style: none; }
 .wind-loop-step { position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--h); margin: 0; }
 .wind-loop-media { width: 100%; height: 100%; }
-.wind-loop-media video, .wind-loop-media img { display: block; width: 100%; height: 100%; object-fit: contain; background: #111; }
-.wind-loop-label { position: absolute; left: 50%; margin: 0; transform: translateX(-50%); color: #fff; font-size: 1.8cqw; font-weight: 700; line-height: 1.2; text-align: center; white-space: nowrap; }
+.wind-loop-media video, .wind-loop-media img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 4px; }
+.wind-loop-label { position: absolute; left: 50%; margin: 0; transform: translateX(-50%); color: var(--ink); font-size: 1.8cqw; font-weight: 600; line-height: 1.2; text-align: center; white-space: nowrap; }
 .wind-loop-step.label-above .wind-loop-label { bottom: calc(100% + 0.8cqw); }
 .wind-loop-step.label-below .wind-loop-label { top: calc(100% + 0.6cqw); }
 .wind-loop-step.text-step .wind-loop-label { inset: 0; display: grid; place-items: center; transform: none; }
@@ -2114,7 +2114,7 @@ tbody tr:hover {
   .wind-loop-canvas { aspect-ratio: auto; padding: 20px 16px 18px; }
   .wind-loop-arrows { display: none; }
   .wind-loop-step { position: static; display: flex; flex-direction: column; align-items: center; width: auto; height: auto; }
-  .wind-loop-step + .wind-loop-step::before { content: "↓"; content: "↓" / ""; margin: 10px 0; color: #c8c8c8; font-size: 22px; line-height: 1; }
+  .wind-loop-step + .wind-loop-step::before { content: "↓"; content: "↓" / ""; margin: 10px 0; color: #575757; font-size: 22px; line-height: 1; }
   .wind-loop-step.wind-loop-drone::before { content: none; }
   .wind-loop-drone { margin-top: 8px; }
   .wind-loop-label, .wind-loop-step.text-step .wind-loop-label { position: static; display: block; margin: 0 0 8px; transform: none; font-size: 16px; white-space: normal; }
@@ -2122,7 +2122,8 @@ tbody tr:hover {
   .wind-loop-media, .wind-loop-media video, .wind-loop-media img { height: auto; }
   .wind-loop-sensor .wind-loop-media { max-width: 72px; }
   .wind-loop-sensing .wind-loop-media { max-width: 200px; }
-  .wind-loop-return { display: block; margin: 14px 0 0; color: #e0e0e0; font-size: 15px; text-align: center; }
+  .wind-loop-sensing .wind-loop-media img { border-radius: 0; }
+  .wind-loop-return { display: block; margin: 14px 0 0; color: var(--muted); font-size: 15px; text-align: center; }
 }
 .deck-split { position: relative; max-width: 1080px; margin: 0 auto; }
 .deck-split-tags { position: absolute; inset: 0; margin: 0; pointer-events: none; }
