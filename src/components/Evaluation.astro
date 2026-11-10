@@ -1,0 +1,54 @@
+---
+// Evaluation summary built from Table 6 of the published article (site.json),
+// so the headline numbers and the table always match the paper's values.
+import site from "../data/site.json";
+const table = site.tables.find((item) => item.id === "all-objectives")!;
+const num = (value: string) => Number(value.replace("−", "-"));
+// Column direction: true when a higher value is better.
+const higherBetter = [false, true, true, true, false, false];
+const best = higherBetter.map((higher, col) => {
+  const values = table.rows.map((row) => num(row[col + 1]));
+  return higher ? Math.max(...values) : Math.min(...values);
+});
+const isBest = (col: number, value: string) => num(value) === best[col];
+const range = (col: number) => {
+  const others = table.rows.slice(1).map((row) => row[col + 1]);
+  const sorted = [...others].sort((a, b) => num(a) - num(b));
+  return [sorted[0], sorted[sorted.length - 1]];
+};
+const tile = (col: number, label: string, unit: string, verdict: string) => {
+  const [low, high] = range(col);
+  const others = higherBetter[col] ? `${high} to ${low}` : `${low} to ${high}`;
+  return { label, value: table.rows[0][col + 1], unit, note: `${verdict} of four methods; baselines ${others}${unit ? " " + unit : ""}` };
+};
+const tiles = [
+  tile(0, "Energy use", "kWh", "Lowest"),
+  tile(1, "Energy efficiency", "m/kWh", "Highest"),
+  tile(2, "Passenger comfort score", "", "Best"),
+  tile(5, "Average noise", "dB", "Lowest"),
+];
+---
+<section class="section deck-section evaluation" id="evaluation" aria-labelledby="evaluation-title">
+  <h2 id="evaluation-title">Evaluation</h2>
+  <p class="deck-lead">In simulated 10 km flights through an OpenStreetMap model of Atlanta with CFD wind fields, our policy is compared with three reinforcement-learning baselines while all objectives are optimized together.</p>
+  <dl class="eval-tiles">
+    {tiles.map((item) => <div class="eval-tile">
+      <dt>{item.label}</dt>
+      <dd class="eval-value">{item.value}{item.unit && <span class="eval-unit"> {item.unit}</span>}</dd>
+      <dd class="eval-note">{item.note}</dd>
+    </div>)}
+  </dl>
+  <div class="table-scroll eval-table" role="region" aria-labelledby="eval-caption" tabindex="0">
+    <table>
+      <caption id="eval-caption"><strong>Table 6 · All-objective comparison.</strong> Lower energy, time, and noise are better; higher efficiency, comfort, and safety scores are better. Bold marks the best value in each column.</caption>
+      <thead><tr>{table.headers.map((header) => <th scope="col">{header}</th>)}</tr></thead>
+      <tbody>
+        {table.rows.map((row, r) => <tr class:list={{ "eval-ours": r === 0 }}>
+          <th scope="row">{row[0]}</th>
+          {row.slice(1).map((value, col) => <td>{isBest(col, value) ? <strong>{value}<span class="sr-only"> (best)</span></strong> : value}</td>)}
+        </tr>)}
+      </tbody>
+    </table>
+  </div>
+  <p class="eval-note-block">TD-MPC2-all scores better on safety (−382.53 versus −477.55) and finishes 2 s sooner (160 versus 162 s). Comfort and safety are unitless model scores. Values are simulation results from Table 6 of the published article; the study does not include real flight trials.</p>
+</section>

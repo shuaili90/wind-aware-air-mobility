@@ -7,6 +7,8 @@ import DeckFigure from "../components/DeckFigure.astro";
 import MotionClip from "../components/MotionClip.astro";
 import Citation from "../components/Citation.astro";
 import WindLoop from "../components/WindLoop.astro";
+import WindPlanning from "../components/WindPlanning.astro";
+import Evaluation from "../components/Evaluation.astro";
 ---
 
 <Layout title={site.displayTitle} bare>
@@ -41,18 +43,13 @@ import WindLoop from "../components/WindLoop.astro";
       </div>
       <WindLoop />
       <div class="deck-step">
-        <h3>Train a tailored PPO policy</h3>
+        <h3>Wind-Aware AI Motion Planning</h3>
+        <p>We develop reinforcement learning-based motion planning to enable aerial robots to navigate complex urban environments under varying wind conditions. By integrating environmental information, flight constraints, and multiple objectives, the framework learns flight policies that balance safety, energy efficiency, and operational performance.</p>
       </div>
-      <div class="method-figure wide-media deck-wide"><Figure id="framework" bare /></div>
+      <WindPlanning />
     </section>
 
-    <section class="section deck-section" id="experiment" aria-label="Experiment">
-      <p class="deck-lead">An OpenStreetMap model of Atlanta, Georgia. Each trial plans a 10 km flight under one of seven wind conditions.</p>
-      <div class="deck-split">
-        <DeckFigure id="atlanta-experiment" />
-        <p class="deck-split-tags" aria-hidden="true"><span>Atlanta</span><span>CFD</span></p>
-      </div>
-    </section>
+    <Evaluation />
     <Citation />
   </div>
 </Layout>

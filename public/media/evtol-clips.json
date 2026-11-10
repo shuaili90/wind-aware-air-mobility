@@ -1,5 +1,5 @@
 {
-  "source": "Proposal defense presentation (Proposal_defense_narrow.pptx), slides 5 and 7, and Flying DNA presentation (Flying DNA 1.pptx), slide 5; GIFs converted to silent MP4.",
+  "source": "Proposal defense presentation (Proposal_defense_narrow.pptx), slides 5 and 7, and Flying DNA presentation (Flying DNA 1.pptx), slides 5 and 6; GIFs converted to silent MP4.",
   "clips": [
     {
       "id": "problem-wind-simulation",
@@ -52,6 +52,32 @@
       "height": 290,
       "credit": "Flying DNA presentation (Flying DNA 1.pptx), slide 5. Animated GIF converted to silent MP4 at its original speed; the simulator's toolbar, status text, and side panel are cropped out.",
       "scope": "Simulation visualization of the drone sensing concept; it is not a recorded flight and does not run the study's policy."
+    },
+    {
+      "id": "yellow-path-flight",
+      "duration": 20.93,
+      "title": "A drone following a yellow flight path through a simulated city",
+      "description": "A small four-rotor drone trails a broad yellow path above streets and intersections between multistory buildings. The camera follows it from rear, elevated, and side viewpoints, first overlooking a street and an intersection, then moving close to a building facade.",
+      "file": "urban-flight-simulation.mp4",
+      "poster": "urban-flight-simulation.jpg",
+      "track": "urban-flight-simulation-descriptions.vtt",
+      "width": 854,
+      "height": 480,
+      "credit": "Flying DNA presentation (Flying DNA 1.pptx), slide 6. The same silent MP4 as the opening simulation: all 628 frames at the original speed.",
+      "scope": "Simulation from the Flying DNA presentation that illustrates wind-aware navigation; it is not a measured result of the published study."
+    },
+    {
+      "id": "green-path-flight",
+      "duration": 9.744,
+      "title": "A drone following a green flight path past a tall building",
+      "description": "A small four-rotor drone trails a bright green path through a rendered city at night. It flies above a wide street with cars and white patches on the road, then rises along the face of a tall office building with lit windows, with intersections and crosswalks below.",
+      "file": "green-path-flight.mp4",
+      "poster": "green-path-flight.jpg",
+      "track": "green-path-flight-descriptions.vtt",
+      "width": 796,
+      "height": 446,
+      "credit": "Flying DNA presentation (Flying DNA 1.pptx), slide 6. Animated GIF converted to silent MP4 with all 292 frames at the original speed, using the slide's crop to remove black borders.",
+      "scope": "Simulation from the Flying DNA presentation that illustrates wind-aware navigation; it is not a measured result of the published study."
     }
   ],
   "hero": [

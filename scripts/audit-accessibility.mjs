@@ -13,7 +13,7 @@ const clipManifest = JSON.parse(
 );
 const clipByFile = new Map([...clipManifest.clips, ...clipManifest.hero].map((clip) => [clip.file, clip]));
 const base = (
-  process.env.TEST_URL || "http://127.0.0.1:4514/eVTOL_webpage"
+  process.env.TEST_URL || "http://127.0.0.1:4514/wind-aware-air-mobility"
 ).replace(/\/$/, "");
 const browser = await chromium.launch({
   headless: true,
@@ -76,6 +76,8 @@ const expectedVideoIds = [
   "wind-loop-network-video",
   "wind-loop-prediction-video",
   "wind-loop-impact-video",
+  "yellow-path-flight-video",
+  "green-path-flight-video",
 ];
 const paperUrl = site.paperUrl;
 const paused = (target) =>
@@ -148,10 +150,10 @@ try {
     check(
       (await page
         .locator(
-          "table, .numeric-pair, .results-highlights, .metric-comparison, .result-numbers, #figure-training",
+          "table:not(#evaluation table), .numeric-pair, .results-highlights, .metric-comparison, .result-numbers, #figure-training",
         )
         .count()) === 0,
-      route + ": numerical result displays are removed",
+      route + ": the only numerical display is the Evaluation summary of Table 6",
     );
     check(
       (await page
@@ -233,7 +235,7 @@ try {
       );
       for (const [section, ids] of [
         ["problem", ["problem-wind-simulation-video", "problem-real-flight-video"]],
-        ["method", ["wind-loop-drone-video", "wind-loop-network-video", "wind-loop-prediction-video", "wind-loop-impact-video"]],
+        ["method", ["wind-loop-drone-video", "wind-loop-network-video", "wind-loop-prediction-video", "wind-loop-impact-video", "yellow-path-flight-video", "green-path-flight-video"]],
       ])
         check(
           JSON.stringify(
@@ -294,8 +296,16 @@ try {
         "Deck images and the slide 5 urban wind field loop are shown",
       );
       check(
+        (await page.locator("#experiment, #figure-framework").count()) === 0 &&
+          (await page.locator("#evaluation .eval-tile").count()) === 4 &&
+          (await page.locator("#evaluation tbody tr").count()) === 4 &&
+          (await page.locator("#evaluation tbody td strong").count()) === 6 &&
+          (await page.locator("#evaluation .eval-value").first().innerText()) === "57.83 kWh",
+        "Evaluation summarizes Table 6 with four headline values and the full table",
+      );
+      check(
         await page
-          .locator("#figure-framework img")
+          .locator("#figure-wind-planning img")
           .evaluate((img) => img.getBoundingClientRect().width >= 1000),
         "Method figure stays large at desktop width",
       );
@@ -446,8 +456,8 @@ try {
               ".visual-research > section > h2, .visual-research > section > .section-heading > h2, .visual-research > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["Background", "Problem", "Methodology", "Citation"]),
-        "Story follows the proposal deck: background, problem, method, experiment",
+        ) === JSON.stringify(["Background", "Problem", "Methodology", "Evaluation", "Citation"]),
+        "Story follows the deck: background, problem, method, evaluation",
       );
       await page
         .getByRole("button", { name: "Copy citation", exact: true })
@@ -474,7 +484,7 @@ try {
           .locator(
             'main a[href="' +
               base.replace(/^https?:\/\/[^/]+/, "") +
-              (route === "/paper/" ? "/#method" : "/#experiment") +
+              (route === "/paper/" ? "/#method" : "/#evaluation") +
               '"]',
           )
           .count()) > 0,

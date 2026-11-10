@@ -29,7 +29,7 @@ import { asset } from "../data/paths";
       <section>
         <h2>Research and presentation scope</h2>
         <p>The published paper evaluates a learned policy in simulated urban flight. It does not include real-aircraft trials, takeoff, landing, or operating certification. Comfort, safety, and noise depend on the study’s models; results do not establish generalization to arbitrary changing winds.</p>
-        <p>The homepage follows the order of the authors’ proposal defense presentation: background, problem, methodology, and experiment. The opening simulation video comes from the authors’ <cite>Flying DNA - Copy 1.pptx</cite>; it and the presentation’s wind animations illustrate the setting and do not by themselves validate the published policy.</p>
+        <p>The homepage follows the order of the authors’ proposal defense presentation: background, problem, methodology, and evaluation. The opening simulation video comes from the authors’ <cite>Flying DNA - Copy 1.pptx</cite>; it and the presentation’s wind animations illustrate the setting and do not by themselves validate the published policy.</p>
         <p>The NASA/Joby opening footage provides independent real-flight context. It is cropped to leave out the captions on the source, and narrow screens crop the sides of the frame further. It is separate from the authors’ simulation and does not demonstrate their controller.</p>
       </section>
       <section id="attachments">
@@ -58,7 +58,7 @@ import { asset } from "../data/paths";
     <div class="section"><MediaCredit /></div>
     <section class="section">
       <h2>Research figure credits</h2>
-      <p>The overview and framework diagrams come from the published paper by {site.authors.map((a) => a.name).join(", ")}. The other images come from the authors’ proposal defense presentation. Original diagram colors are retained; labels and text descriptions communicate the information without requiring color identification.</p>
+      <p>The training-framework diagram and the two flight animations in the Methodology section come from slide 6 of the authors’ Flying DNA presentation (<cite>Flying DNA 1.pptx</cite>). The diagram’s white lines and labels are recolored to charcoal for the light page; its reward terms follow the presentation, which lists “battery depletion” and “risk” where Figure 2 of the paper lists “energy depletion” and “obstacle penalty.” The Evaluation section reproduces Table 6 of the published article as an HTML table and marks the best value in each column with bold text and a screen-reader label. The overview and framework diagrams come from the published paper by {site.authors.map((a) => a.name).join(", ")}. The other images come from the authors’ proposal defense presentation. Original diagram colors are retained; labels and text descriptions communicate the information without requiring color identification.</p>
       <p>See the <a href={asset("#method")}>methodology</a> on the homepage. Rights in published papers and third-party media remain with their respective holders.</p>
     </section>
   </div>

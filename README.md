@@ -5,7 +5,7 @@
 
 论文：**Reinforcement learning based multi-perspective motion planning of manned electric vertical take-off and landing vehicle in urban environment with wind fields**。2025 年发表论文及其原表是已验证方法与量化结果的事实来源；原始 PDF 保持不变，不在仓库中重新分发。本次修订另使用作者提供的六页 `Flying DNA - Copy 1.pptx` 介绍更广泛的项目愿景，明确区分愿景、演示素材与论文实验。
 
-网站地址：<https://cgchrfchscyrh.github.io/eVTOL_webpage/>。科研代码仓库与本网页仓库分开：<https://github.com/cgchrfchscyrh/eVTOL_RL>。
+网站地址：<https://cgchrfchscyrh.github.io/wind-aware-air-mobility/>（2026-11-10 由 eVTOL_webpage 更名）。科研代码仓库与本网页仓库分开：<https://github.com/cgchrfchscyrh/eVTOL_RL>。
 
 ## 网站内容
 
@@ -35,15 +35,15 @@ npm run dev
 ```sh
 npm run lint
 npm run audit:security
-BASE_PATH=/eVTOL_webpage SITE_URL=https://cgchrfchscyrh.github.io npm run build
-BASE_PATH=/eVTOL_webpage npm run preview -- --host 127.0.0.1 --port 4332
+BASE_PATH=/wind-aware-air-mobility SITE_URL=https://cgchrfchscyrh.github.io npm run build
+BASE_PATH=/wind-aware-air-mobility npm run preview -- --host 127.0.0.1 --port 4332
 ```
 
 在另一终端运行：
 
 ```sh
 npx playwright install chromium
-TEST_URL=http://127.0.0.1:4332/eVTOL_webpage npm run test:a11y
+TEST_URL=http://127.0.0.1:4332/wind-aware-air-mobility npm run test:a11y
 ```
 
 也可以用 `CHROME_PATH` 指定已安装的 Chrome。无障碍测试包括 axe、键盘跳转/标签页/视频控制、320 像素回流、文字间距、无 JavaScript 页面、媒体描述轨道和引用复制。详细记录见 [ACCESSIBILITY.md](ACCESSIBILITY.md)。

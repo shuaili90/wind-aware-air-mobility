@@ -1,0 +1,18 @@
+---
+// Slide 6 of the Flying DNA presentation: the training framework and two
+// simulated flights. The diagram's white strokes are recolored for the light page.
+import MotionClip from "./MotionClip.astro";
+import { asset } from "../data/paths";
+---
+<figure class="wind-plan-figure wide-media" id="figure-wind-planning">
+  <img src={asset("figures/presentation/wind-aware-planning.webp")} width="2400" height="946" alt="Reinforcement-learning training framework linking the urban environment, an RL agent, a replay buffer, actor–critic training, and a reward function." aria-describedby="wind-plan-description" loading="lazy" decoding="async" />
+  <div id="wind-plan-description" class="sr-only">
+    <p>The urban environment, shown as a 3D city model beside its CFD wind field, sits at left. The RL agent contains Action, Policy, State, and Reward blocks. The agent acts in the environment and retrieves the next state from it. Red arrows store actions, states, and rewards in a replay buffer. DRL training samples information from the buffer to train an actor network and a critic network; their losses feed an optimizer, and a blue arrow updates the policy. A green arrow shows the policy choosing the next action.</p>
+    <p>Below, the reward function lists eight terms: out of bound, entering a no-fly zone, battery depletion, collision, energy, time, target, and risk.</p>
+  </div>
+</figure>
+<p class="wind-plan-arrow" aria-hidden="true">↓</p>
+<div class="media-pair wide-media wind-plan-flights">
+  <MotionClip id="yellow-path-flight" />
+  <MotionClip id="green-path-flight" />
+</div>
