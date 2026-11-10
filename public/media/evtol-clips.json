@@ -1,5 +1,5 @@
 {
-  "source": "Proposal defense presentation (Proposal_defense_narrow.pptx), slides 5 and 7; GIFs converted to silent MP4.",
+  "source": "Proposal defense presentation (Proposal_defense_narrow.pptx), slides 5 and 7, and Flying DNA presentation (Flying DNA 1.pptx), slide 5; GIFs converted to silent MP4.",
   "clips": [
     {
       "id": "problem-wind-simulation",
@@ -39,6 +39,19 @@
       "height": 480,
       "credit": "Proposal defense presentation, slide 7. Animated GIF converted to silent MP4 at its original size and speed.",
       "scope": "Simulation visualization; colors show predicted wind, not measured wind."
+    },
+    {
+      "id": "drone-sensing-network",
+      "duration": 19.04,
+      "title": "A drone flying a planned path through a simulated city",
+      "description": "Seen from above and behind, a small drone flies along a street in a rendered city. A magenta line traces the path behind it. The drone passes brick and stone buildings with lit windows, crosses intersections with yellow crosswalks, and continues toward a square with bare trees. Light streaks and patches cover the darkened streets.",
+      "file": "drone-sensing-network.mp4",
+      "poster": "drone-sensing-network.jpg",
+      "track": "drone-sensing-network-descriptions.vtt",
+      "width": 484,
+      "height": 290,
+      "credit": "Flying DNA presentation (Flying DNA 1.pptx), slide 5. Animated GIF converted to silent MP4 at its original speed; the simulator's toolbar, status text, and side panel are cropped out.",
+      "scope": "Simulation visualization of the drone sensing concept; it is not a recorded flight and does not run the study's policy."
     }
   ],
   "hero": [

@@ -72,7 +72,10 @@ const expectedVideoIds = [
   "hero-sim-video",
   "problem-wind-simulation-video",
   "problem-real-flight-video",
-  "wind-prediction-video",
+  "wind-loop-drone-video",
+  "wind-loop-network-video",
+  "wind-loop-prediction-video",
+  "wind-loop-impact-video",
 ];
 const paperUrl = site.paperUrl;
 const paused = (target) =>
@@ -218,7 +221,7 @@ try {
             .locator("video")
             .evaluateAll((videos) => videos.map((v) => v.id).sort()),
         ) === JSON.stringify([...expectedVideoIds].sort()),
-        "The opening pair and the three presentation videos are on the page",
+        "The opening pair and the presentation videos are on the page",
       );
       check(
         (await page.locator(".hero-publication .actions a").count()) === 1 &&
@@ -230,7 +233,7 @@ try {
       );
       for (const [section, ids] of [
         ["problem", ["problem-wind-simulation-video", "problem-real-flight-video"]],
-        ["method", ["wind-prediction-video"]],
+        ["method", ["wind-loop-drone-video", "wind-loop-network-video", "wind-loop-prediction-video", "wind-loop-impact-video"]],
       ])
         check(
           JSON.stringify(
@@ -284,8 +287,11 @@ try {
       );
       check(
         (await page.locator("#background .deck-figure img").count()) === 3 &&
-          (await page.locator("#method .deck-trio > *").count()) === 3,
-        "Deck images and the city, CFD, and wind-prediction trio are shown",
+          (await page.locator("#method .wind-loop .wind-loop-step").count()) === 9 &&
+          (await page.locator("#method .wind-loop video").count()) === 4 &&
+          (await page.locator("#method .wind-loop img").count()) === 4 &&
+          (await page.locator("#method .deck-trio").count()) === 0,
+        "Deck images and the slide 5 urban wind field loop are shown",
       );
       check(
         await page
@@ -532,7 +538,7 @@ try {
         ),
       preference + ": no automatic motion on entry",
     );
-    await p.locator("#wind-prediction-video").scrollIntoViewIfNeeded();
+    await p.locator("#wind-loop-prediction-video").scrollIntoViewIfNeeded();
     await p.waitForTimeout(200);
     check(await paused(p), preference + ": scrolling does not start media");
     await atTop(p);

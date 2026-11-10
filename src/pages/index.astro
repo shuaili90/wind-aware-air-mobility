@@ -6,6 +6,7 @@ import Figure from "../components/Figure.astro";
 import DeckFigure from "../components/DeckFigure.astro";
 import MotionClip from "../components/MotionClip.astro";
 import Citation from "../components/Citation.astro";
+import WindLoop from "../components/WindLoop.astro";
 ---
 
 <Layout title={site.displayTitle} bare>
@@ -38,11 +39,7 @@ import Citation from "../components/Citation.astro";
         <h3>Urban Wind Field Modeling</h3>
         <p>Urban buildings create complex, spatially varying wind conditions. We explore the integration of aerial sensing, urban digital twins, and physics-informed modeling to characterize and predict urban wind fields, supporting wind-aware aerial navigation and motion planning.</p>
       </div>
-      <div class="deck-trio wide-media">
-        <DeckFigure id="city" tag="City" />
-        <DeckFigure id="cfd" tag="CFD" />
-        <MotionClip id="wind-prediction" tag="Wind prediction" />
-      </div>
+      <WindLoop />
       <div class="deck-step">
         <h3>Train a tailored PPO policy</h3>
       </div>
