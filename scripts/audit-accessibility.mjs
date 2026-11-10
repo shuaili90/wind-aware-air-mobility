@@ -150,10 +150,10 @@ try {
     check(
       (await page
         .locator(
-          "table:not(#evaluation table), .numeric-pair, .results-highlights, .metric-comparison, .result-numbers, #figure-training",
+          "table, .numeric-pair, .results-highlights, .metric-comparison, .result-numbers, #figure-training",
         )
         .count()) === 0,
-      route + ": the only numerical display is the Evaluation summary of Table 6",
+      route + ": no result tables or comparison charts; Evaluation uses four text values",
     );
     check(
       (await page
@@ -298,10 +298,8 @@ try {
       check(
         (await page.locator("#experiment, #figure-framework").count()) === 0 &&
           (await page.locator("#evaluation .eval-tile").count()) === 4 &&
-          (await page.locator("#evaluation tbody tr").count()) === 4 &&
-          (await page.locator("#evaluation tbody td strong").count()) === 6 &&
           (await page.locator("#evaluation .eval-value").first().innerText()) === "57.83 kWh",
-        "Evaluation summarizes Table 6 with four headline values and the full table",
+        "Evaluation summarizes Table 6 with four headline values",
       );
       check(
         await page
